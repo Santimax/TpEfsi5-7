@@ -1,35 +1,27 @@
-import React, { Fragment, useState } from "react";
-import PropTypes from "prop-types";
+// Citas.jsx
+import React, { useContext } from 'react';
+import { CitasContext } from '../context/CitasContext';
 
-function Citas({ mascota, dueño, fecha, hora, sintomas }) {
-  const [citaEliminada, setCitaEliminada] = useState(false);
-
-  const handleClick = () => {
-    setCitaEliminada(!citaEliminada);
-  };
-
-  return !citaEliminada && (
-    <Fragment>
-      <div className="cita">
-        <p>Mascota: <span>{mascota}</span></p>
-        <p>Dueño: <span>{dueño}</span></p>
-        <p>Fecha: <span>{fecha}</span></p>
-        <p>Hora: <span>{hora}</span></p>
-        <p>Síntomas: <span>{sintomas}</span></p>
-        <button className="button eliminar u-full-width" onClick={handleClick}>
-          Eliminar  ×
-        </button>
-      </div>
-    </Fragment>
+function Citas() {
+  const { citas, setCitas } = useContext(CitasContext);
+  return (
+    <div>
+      <h2>Administra tus citas</h2>
+      {citas.length ? (
+        citas.map((e, index) => (
+          <div key={index}>
+            <p>Mascota: {e.mascota}</p>
+            <p>Dueño: {e.dueño}</p>
+            <p>Fecha: {e.fecha}</p>
+            <p>Hora: {e.hora}</p>
+            <p>Síntomas: {e.sintomas}</p>
+          </div>
+        ))
+      ) : (
+        <p>No hay citas disponibles.</p>
+      )}
+    </div>
   );
 }
-
-Citas.propTypes = {
-  mascota: PropTypes.string.isRequired,
-  dueño: PropTypes.string.isRequired,
-  fecha: PropTypes.string.isRequired,
-  hora: PropTypes.string.isRequired,
-  sintomas: PropTypes.string,
-};
 
 export default Citas;
