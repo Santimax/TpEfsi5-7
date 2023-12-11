@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Ingresos from './Components/Ingresos';
 import Citas from './Components/Citas';
 
 function App() {
-  const [citas, setCitas] = useState([]);
-  const [mostrarCitas, setMostrarCitas] = useState(false);
+  const [citas, setCitas] = useState(JSON.parse(localStorage.getItem('citas')) || []);
+
+
+  useEffect(() => {
+    localStorage.setItem('citas', JSON.stringify(citas));
+  }, [citas]);
+
 
   const addCita = (nuevaCita) => {
     setCitas([...citas, nuevaCita]);
-    setMostrarCitas(true);
   };
 
   return (
@@ -22,23 +26,21 @@ function App() {
               <Ingresos onAddCita={addCita} />
             </div>
             <div className="one-half column">
-              <h2>Administra tus citas</h2>
-              {mostrarCitas ? (
+              <h2>Administra tus citas</h2>{
                 citas.length ? (
-                  citas.map((dato, ID) => (
+                  citas.map((e, index) => (
                     <Citas
-                      key={ID}
-                      mascota={dato.mascota}
-                      dueño={dato.dueño}
-                      fecha={dato.fecha}
-                      hora={dato.hora}
-                      sintomas={dato.sintomas}
+                      key={index}
+                      mascota={e.mascota}
+                      dueño={e.dueño}
+                      fecha={e.fecha}
+                      hora={e.hora}
+                      sintomas={e.sintomas}
                     />
                   ))
                 ) : (
                   <p>No hay citas disponibles.</p>
-                )
-              ) : null}
+                )}
             </div>
           </div>
         </div>

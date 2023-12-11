@@ -17,7 +17,7 @@ function Citas({ mascota, dueño, fecha, hora, sintomas }) {
         <p>Hora: <span>{hora}</span></p>
         <p>Síntomas: <span>{sintomas}</span></p>
         <button className="button eliminar u-full-width" onClick={handleClick}>
-          Eliminar ×
+          Eliminar  ×
         </button>
       </div>
     </Fragment>
