@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
+import PropTypes from "prop-types";
 
-function Citas({ nombre, dueno, fecha, hora, sintomas }) {
+function Citas({ mascota, dueño, fecha, hora, sintomas }) {
   const [citaEliminada, setCitaEliminada] = useState(false);
 
   const handleClick = () => {
@@ -9,12 +10,12 @@ function Citas({ nombre, dueno, fecha, hora, sintomas }) {
 
   return !citaEliminada && (
     <Fragment>
-      <div className="citas">
-        <p>Mascota: <span>{nombre}</span></p>
-        <p>Dueño: <span>{dueno}</span></p>
+      <div className="cita">
+        <p>Mascota: <span>{mascota}</span></p>
+        <p>Dueño: <span>{dueño}</span></p>
         <p>Fecha: <span>{fecha}</span></p>
         <p>Hora: <span>{hora}</span></p>
-        <p>Sintomas: <span>{sintomas}</span></p>
+        <p>Síntomas: <span>{sintomas}</span></p>
         <button className="button eliminar u-full-width" onClick={handleClick}>
           Eliminar ×
         </button>
@@ -22,5 +23,13 @@ function Citas({ nombre, dueno, fecha, hora, sintomas }) {
     </Fragment>
   );
 }
+
+Citas.propTypes = {
+  mascota: PropTypes.string.isRequired,
+  dueño: PropTypes.string.isRequired,
+  fecha: PropTypes.string.isRequired,
+  hora: PropTypes.string.isRequired,
+  sintomas: PropTypes.string,
+};
 
 export default Citas;

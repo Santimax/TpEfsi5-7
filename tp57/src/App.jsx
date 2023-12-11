@@ -7,9 +7,7 @@ function App() {
   const [mostrarCitas, setMostrarCitas] = useState(false);
 
   const addCita = (nuevaCita) => {
-    // Agregar la nueva cita al estado de citas
     setCitas([...citas, nuevaCita]);
-    // Mostrar la lista de citas después de agregar una cita
     setMostrarCitas(true);
   };
 
@@ -27,14 +25,14 @@ function App() {
               <h2>Administra tus citas</h2>
               {mostrarCitas ? (
                 citas.length ? (
-                  citas.map((e, index) => (
+                  citas.map((dato, ID) => (
                     <Citas
-                      key={index}
-                      mascota={e.mascota}
-                      dueño={e.dueño}
-                      fecha={e.fecha}
-                      hora={e.hora}
-                      sintomas={e.sintomas}
+                      key={ID}
+                      mascota={dato.mascota}
+                      dueño={dato.dueño}
+                      fecha={dato.fecha}
+                      hora={dato.hora}
+                      sintomas={dato.sintomas}
                     />
                   ))
                 ) : (

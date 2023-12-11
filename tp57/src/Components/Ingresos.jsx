@@ -15,9 +15,7 @@ const Ingresos = ({ onAddCita }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Llamar a la función onAddCita con la nueva cita
     onAddCita(formData);
-    // Limpiar los campos del formulario después de la sumisión
     setFormData({
       mascota: '',
       dueño: '',
