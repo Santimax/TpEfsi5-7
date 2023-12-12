@@ -1,4 +1,3 @@
-// App.jsx
 import React from 'react';
 import Ingresos from './Components/Ingresos';
 import Citas from './Components/Citas';

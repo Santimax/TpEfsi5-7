@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+
+.cita-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cita-card p {
+  margin: 0;
+}
+
+.cita-card button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}

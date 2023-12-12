@@ -1,4 +1,3 @@
-// Ingresos.jsx
 import React, { useState, useContext } from 'react';
 import { CitasContext } from '../Context.jsx/CitasContext';
 

@@ -1,4 +1,3 @@
-// Citas.jsx
 import React, { useContext } from 'react';
 import { CitasContext } from '../Context.jsx/CitasContext';
 
@@ -12,16 +11,16 @@ const Citas = () => {
   };
 
   return (
-    <div>
+    <div className="lista-citas">
       {citas.length ? (
         citas.map((cita, index) => (
-          <div key={index} className="cita-card">
-            <p>Mascota: {cita.mascota}</p>
-            <p>Dueño: {cita.dueño}</p>
-            <p>Fecha: {cita.fecha}</p>
-            <p>Hora: {cita.hora}</p>
-            <p>Síntomas: {cita.sintomas}</p>
-            <button onClick={() => eliminarCita(index)}>Eliminar Cita</button>
+          <div key={index} className="cita">
+            <p><span className="bold-text">Mascota:</span> {cita.mascota}</p>
+            <p><span className="bold-text">Dueño:</span> {cita.dueño}</p>
+            <p><span className="bold-text">Fecha:</span> {cita.fecha}</p>
+            <p><span className="bold-text">Hora:</span> {cita.hora}</p>
+            <p><span className="bold-text">Síntomas:</span> {cita.sintomas}</p>
+            <button onClick={() => eliminarCita(index)} className="button eliminar u-full-width">Eliminar ×</button>
           </div>
         ))
       ) : (
