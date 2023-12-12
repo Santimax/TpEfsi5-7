@@ -1,6 +1,10 @@
-import React, { useState } from 'react';
+// Ingresos.jsx
+import React, { useState, useContext } from 'react';
+import { CitasContext } from '../Context.jsx/CitasContext';
 
-const Ingresos = ({ onAddCita }) => {
+const Ingresos = () => {
+  const { setCitas } = useContext(CitasContext);
+
   const [formData, setFormData] = useState({
     mascota: '',
     dueño: '',
@@ -15,7 +19,7 @@ const Ingresos = ({ onAddCita }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddCita(formData);
+    setCitas((prevCitas) => [...prevCitas, formData]);
     setFormData({
       mascota: '',
       dueño: '',
@@ -61,7 +65,7 @@ const Ingresos = ({ onAddCita }) => {
         value={formData.hora}
         onChange={handleChange}
       />
-      <label>Sintomas</label>
+      <label>Síntomas</label>
       <textarea
         name="sintomas"
         className="u-full-width"

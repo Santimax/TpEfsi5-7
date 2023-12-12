@@ -1,20 +1,27 @@
 // Citas.jsx
 import React, { useContext } from 'react';
-import { CitasContext } from '../context/CitasContext';
+import { CitasContext } from '../Context.jsx/CitasContext';
 
-function Citas() {
+const Citas = () => {
   const { citas, setCitas } = useContext(CitasContext);
+
+  const eliminarCita = (index) => {
+    const nuevasCitas = [...citas];
+    nuevasCitas.splice(index, 1);
+    setCitas(nuevasCitas);
+  };
+
   return (
     <div>
-      <h2>Administra tus citas</h2>
       {citas.length ? (
-        citas.map((e, index) => (
-          <div key={index}>
-            <p>Mascota: {e.mascota}</p>
-            <p>Dueño: {e.dueño}</p>
-            <p>Fecha: {e.fecha}</p>
-            <p>Hora: {e.hora}</p>
-            <p>Síntomas: {e.sintomas}</p>
+        citas.map((cita, index) => (
+          <div key={index} className="cita-card">
+            <p>Mascota: {cita.mascota}</p>
+            <p>Dueño: {cita.dueño}</p>
+            <p>Fecha: {cita.fecha}</p>
+            <p>Hora: {cita.hora}</p>
+            <p>Síntomas: {cita.sintomas}</p>
+            <button onClick={() => eliminarCita(index)}>Eliminar Cita</button>
           </div>
         ))
       ) : (
@@ -22,6 +29,6 @@ function Citas() {
       )}
     </div>
   );
-}
+};
 
 export default Citas;
