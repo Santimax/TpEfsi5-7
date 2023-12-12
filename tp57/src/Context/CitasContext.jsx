@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 
-export const CitasContext = React.createContext();
+export const CitasContext = createContext();
 
-const CitasProvider = (children) => {
-    const [citas, setCitas] = React.useState(JSON.parse(localStorage.getItem('citas')) || []);
+export const CitasProvider = ({ children }) => {
+  const [citas, setCitas] = useState(() => {
+    const storedCitas = JSON.parse(localStorage.getItem('citas'));
+    return storedCitas || [];
+  });
 
-    return <CitasContext.Provider value={{citas, setCitas}}>{children}</CitasContext.Provider>
-}
+  useEffect(() => {
+    localStorage.setItem('citas', JSON.stringify(citas));
+  }, [citas]);
 
-export default CitasProvider;
-
-
+  return <CitasContext.Provider value={{ citas, setCitas }}>{children}</CitasContext.Provider>;
+};
