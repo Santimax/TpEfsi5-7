@@ -1,4 +1,3 @@
-// citas.jsx
 import React, { useContext } from 'react';
 import { CitasContext } from '../Context.jsx/CitasContext';
 
@@ -29,6 +28,14 @@ const Citas = () => {
       )}
     </div>
   );
+};
+
+Citas.propTypes = {
+  mascota: PropTypes.string.isRequired,
+  dueño: PropTypes.string.isRequired,
+  fecha: PropTypes.string.isRequired,
+  hora: PropTypes.string.isRequired,
+  sintomas: PropTypes.string,
 };
 
 export default Citas;
