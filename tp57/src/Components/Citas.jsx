@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { CitasContext } from '../Context/CitasContext';
+import PropTypes from 'prop-types';
 
 const Citas = () => {
   const { citas, setCitas } = useContext(CitasContext);
@@ -28,6 +29,14 @@ const Citas = () => {
       )}
     </div>
   );
+};
+
+Citas.propTypes = {
+  mascota: PropTypes.string.isRequired,
+  dueño: PropTypes.string.isRequired,
+  fecha: PropTypes.string.isRequired,
+  hora: PropTypes.string.isRequired,
+  sintomas: PropTypes.string,
 };
 
 export default Citas;
