@@ -1,7 +1,7 @@
 import React from 'react';
 import Ingresos from './Components/Ingresos';
 import Citas from './Components/Citas';
-import { CitasProvider } from './Context.jsx/CitasContext';
+import { CitasProvider } from './Context/CitasContext';
 
 function App() {
   return (

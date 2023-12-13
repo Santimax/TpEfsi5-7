@@ -1,5 +1,5 @@
 import React from 'react';
-import { CitasProvider } from '../Context.jsx/CitasContext';
+import { CitasProvider } from '../Context/CitasContext';
 import App from '../App';
 
 function Main() {

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { CitasContext } from '../Context.jsx/CitasContext';
+import { CitasContext } from '../Context/CitasContext';
 
 const Ingresos = () => {
   const { setCitas } = useContext(CitasContext);
